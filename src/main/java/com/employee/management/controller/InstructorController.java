@@ -28,17 +28,17 @@ public class InstructorController {
     }
 
     @PostMapping
-    public Instructor saveEmployee(@RequestBody Instructor instructor) {
+    public Instructor saveInstructor(@RequestBody Instructor instructor) {
         return instructorService.saveInstructor(instructor);
     }
 
     @PutMapping
-    public Instructor updateEmployee(@RequestBody Instructor instructor) {
+    public Instructor updateInstructor(@RequestBody Instructor instructor) {
         return instructorService.updateInstructor(instructor);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteEmployee(@PathVariable("id") Long id) {
+    public void deleteInstructor(@PathVariable("id") Long id) {
         instructorService.deleteInstructor(id);
     }
 }
