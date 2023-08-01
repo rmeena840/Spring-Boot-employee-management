@@ -28,6 +28,12 @@ public class InstructorDetail {
         this.hobby = hobby;
     }
 
+    public InstructorDetail(String youtubeChannel, String hobby, Instructor instructor) {
+        this.youtubeChannel = youtubeChannel;
+        this.hobby = hobby;
+        this.instructor = instructor;
+    }
+
     public Long getId() {
         return id;
     }

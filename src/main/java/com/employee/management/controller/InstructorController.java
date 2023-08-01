@@ -1,6 +1,5 @@
 package com.employee.management.controller;
 
-import com.employee.management.entity.EmployeeEntity;
 import com.employee.management.entity.Instructor;
 import com.employee.management.service.InstructorService;
 import org.springframework.web.bind.annotation.*;
