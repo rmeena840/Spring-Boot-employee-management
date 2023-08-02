@@ -1,7 +1,9 @@
 package com.employee.management.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="instructor")
@@ -20,20 +22,23 @@ public class Instructor {
     @Column(name = "email")
     private String email;
 
-    @JsonIgnore
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "instructor_detail_id")
     private InstructorDetail instructorDetail;
 
-    public Instructor() {
+    @OneToMany(mappedBy = "instructor",cascade = CascadeType.ALL)
+    private List<Course> course;
 
-    }
-
-    public Instructor(String firstName, String lastName, String email, InstructorDetail instructorDetail) {
+    public Instructor(String firstName, String lastName, String email, InstructorDetail instructorDetail, List<Course> course) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.instructorDetail = instructorDetail;
+        this.course = course;
+    }
+
+    public Instructor() {
+
     }
 
     public Instructor(String firstName, String lastName, String email) {
@@ -76,5 +81,21 @@ public class Instructor {
 
     public void setInstructorDetail(InstructorDetail instructorDetail) {
         this.instructorDetail = instructorDetail;
+    }
+    public List<Course> getCourse() {
+        return course;
+    }
+
+    public void setCourse(List<Course> course) {
+        this.course = course;
+    }
+
+    // bi-directional
+    public void add(Course course) {
+        if(this.course == null) {
+            this.course = new ArrayList<>();
+        }
+        this.course.add(course);
+        course.setInstructor(this);
     }
 }

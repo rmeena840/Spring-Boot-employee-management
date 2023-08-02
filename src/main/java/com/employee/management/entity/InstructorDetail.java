@@ -23,11 +23,6 @@ public class InstructorDetail {
 
     }
 
-    public InstructorDetail(String youtubeChannel, String hobby) {
-        this.youtubeChannel = youtubeChannel;
-        this.hobby = hobby;
-    }
-
     public InstructorDetail(String youtubeChannel, String hobby, Instructor instructor) {
         this.youtubeChannel = youtubeChannel;
         this.hobby = hobby;
@@ -53,7 +48,6 @@ public class InstructorDetail {
     public void setHobby(String hobby) {
         this.hobby = hobby;
     }
-
     public Instructor getInstructor() {
         return instructor;
     }
